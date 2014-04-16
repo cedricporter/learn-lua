@@ -37,3 +37,44 @@ printarg(1)
 printarg(1, 2)
 printarg(1, 2, 3)
 printarg(nil)
+
+print("---------------")
+
+mod = {}
+
+function mod.printa()
+    print('a')
+end
+
+do
+    local old = mod.printa
+    mod.printa = function ()
+        print('hacked start')
+        old()
+        print('hacked end')
+    end
+end
+
+mod.printa()
+
+print("---------------")
+
+-- g_count = 0
+-- function stackoverflow()
+--     print(g_count)
+--     g_count = g_count + 1
+--     stackoverflow()
+--     return 
+-- end
+
+-- stackoverflow()
+
+
+g_count = 0
+function stacknotoverflow()
+    print(g_count)
+    g_count = g_count + 1
+    return stacknotoverflow()
+end
+
+stacknotoverflow()
