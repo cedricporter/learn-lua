@@ -3,9 +3,7 @@
 function fib()
     local a, b = 0, 1
     return function()
-        local c = b
-        b = a + b
-        a = c
+        a, b = b, a + b
         return a
     end
 end        
