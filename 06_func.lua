@@ -70,11 +70,11 @@ print("---------------")
 -- stackoverflow()
 
 
-g_count = 0
-function stacknotoverflow()
-    print(g_count)
-    g_count = g_count + 1
-    return stacknotoverflow()
-end
+-- g_count = 0
+-- function stacknotoverflow()
+--     print(g_count)
+--     g_count = g_count + 1
+--     return stacknotoverflow()
+-- end
 
-stacknotoverflow()
+-- stacknotoverflow()
