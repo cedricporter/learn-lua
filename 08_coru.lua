@@ -33,15 +33,13 @@ end
 
 
 function fib_gen2()
-    local function fib()
-        local a, b = 0, 1
-        while true do
-            coroutine.yield(b)
-            a, b = b, a + b
-        end
-    end
-
-    return coroutine.wrap(function() fib() end)
+    return coroutine.wrap(function()
+            local a, b = 0, 1
+            while true do
+                coroutine.yield(b)
+                a, b = b, a + b
+            end
+    end)
 end
 
 for i in fib_gen1() do
