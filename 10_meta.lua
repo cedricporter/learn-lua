@@ -1,6 +1,6 @@
 #!/usr/bin/env lua
 
-function printTable(tbl)
+function tableToString(tbl)
     local l = {}
     for key in pairs(tbl) do
         l[#l + 1] = key .. ": " .. tbl[key] 
@@ -20,7 +20,7 @@ end
 
 Window.mt.__index = Window.prototype
 
-Window.mt.__tostring = printTable
+Window.mt.__tostring = tableToString
 
 w = Window.new{x=10}
 print(w)
@@ -29,7 +29,7 @@ print(w.width)
 print("---------------")
 
 function setDefault(tbl, defaultValue)
-    local mt = {__index = function () return defaultValue end, __tostring = printTable}
+    local mt = {__index = function () return defaultValue end, __tostring = tableToString}
     setmetatable(tbl, mt)
 end
 
